@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #chatLog {
+            width: 300px;
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat Room</h1>
+    
+    <div id="chatLog"></div>
+    
+    <input type="text" id="messageInput" placeholder="Enter your message">
+    <button id="sendButton">Send</button>
+    <button id="logoutButton">Logout</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var chatLog = document.getElementById("chatLog");
+            var messageInput = document.getElementById("messageInput");
+            var sendButton = document.getElementById("sendButton");
+            var logoutButton = document.getElementById("logoutButton");
+
+            // Function to append a message to the chat log
+            function appendMessage(message) {
+                var messageElement = document.createElement("div");
+                messageElement.textContent = message;
+                chatLog.appendChild(messageElement);
+            }
+
+            // Event listener for send button
+            sendButton.addEventListener("click", function() {
+                var message = messageInput.value.trim();
+                if (message !== "") {
+                    // Send message to server
+                    // Replace this with your actual code to send messages
+                    appendMessage("You: " + message);
+                    messageInput.value = "";
+                }
+            });
+
+            // Event listener for logout button
+            logoutButton.addEventListener("click", function() {
+                // Perform logout action
+                // Replace this with your actual logout code
+                appendMessage("You logged out");
+            });
+
+            // Initial welcome message
+            appendMessage("Welcome to the chat room!");
+        });
+    </script>
+</body>
+</html>
+
